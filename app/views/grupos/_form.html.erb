@@ -1,0 +1,10 @@
+<%= simple_form_for @grupo, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :ficha %>
+  <%= f.label :Programa %>
+  <%= f.collection_select :programa_id, Programa.all, :id, :nombre %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                grupos_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<%= simple_form_for(@programa, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
+
+		<%= f.error_notification %>
+
+	  <%= f.input :nombre %>
+	  <%= f.input :precio %>
+	  <%= f.label :Observaciones %>
+	  <%= f.text_area(:observaciones, :rows =>5) %>
+	  <div class="form-actions">
+	    <%= f.button :submit, :class => 'btn-primary' %>
+	    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+	                programas_path, :class => 'btn' %>
+	  </div>
+<% end %>

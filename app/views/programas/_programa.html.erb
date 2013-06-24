@@ -1,0 +1,14 @@
+<tr id=<%= "programa_#{programa.id}" %>>
+
+  <td><%= programa.nombre %></td>
+  <td><%= programa.precio %></td>
+  <td><%= programa.observaciones %></td>
+  <td>
+    <%= link_to 'Informacion', programa, :remote => true, :class => 'btn btn-mini btn-info' %>
+    <%= link_to 'Editar', edit_programa_path(programa), :remote => true,
+        :class => 'btn btn-mini' %>
+    <%= link_to 'Eliminar', programa, 
+        :data => { :confirm => 'Esta Seguro?' },
+        :method => :delete, :remote => true, :class => 'btn btn-mini btn-danger' %>
+  </td>
+</tr>

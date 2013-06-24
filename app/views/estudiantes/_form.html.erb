@@ -1,0 +1,20 @@
+<%= simple_form_for @estudiante, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :nombre %>
+  <%= f.input :documento %>
+  <%= f.input :email %>
+  <%= f.input :tell1 %>
+  <%= f.input :cel %>
+  <%= f.input :fechana %>
+  <%= f.input :direccion %>
+  <%= f.input :nomfam %>
+  <%= f.input :tell2 %>
+  <%= f.label :ficha %>
+  <%= f.collection_select :grupo_id, Grupo.all, :id, :ficha %><br><br>
+  <%= f.label :tipo_documento %>
+  <%= f.collection_select :tpodocumento_id, Tpodocumento.all, :id, :nombre %><br><br>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                estudiantes_path, :class => 'btn' %>
+  </div>
+<% end %>

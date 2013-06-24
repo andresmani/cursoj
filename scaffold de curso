@@ -1,0 +1,42 @@
+curso	
+	nombre *
+	documento *
+	telefono casa *
+	cell *
+	telefono faliliar *
+	fecha nacimiento *
+	direccion *
+	correo *
+	nombre del fammiliar *
+	codigo 130601
+
+	valor del curso *
+	observaciones *
+---------------------------------------------------------------------------------------------------------------
+agregar gemas bundle y 
+		1)rails g simple_form:install --bootstrap
+		2)rails g bootstrap:install
+
+		repetir en cada scaffold 
+		3)rails g scaffold nombre campo:tipo --skip-stylesheets
+		4)rake db:miggrate
+		5)rails g bootstrap:themed scaffold(s)<- scaffold en plural -f
+ 
+modelos:
+	--------------------------------------------------------------------------
+	rails g scaffold grupo ficha:string programa:references --skip-stylesheets
+	-migrar
+	rails g bootstrap:themed grupos -f
+	----------------------------------------------------------------------------
+	rails g scaffold programa nombre:string precio:float observaciones:text --skip-stylesheets
+	-migrar
+	rails g bootstrap:themed programas -f
+	-----------------------------------------------------------------------------------------------
+	rails g scaffold tpodocumento nombre:string --skip-stylesheets
+	-migrar
+	rails g bootstrap:themed tpodocumentos -f
+	-----------------------------------------------------------------
+	rails g scaffold estudiante nombre:string documento:string email:string tell1:string cel:string fechana:date direccion:string nomfam:string tell2:string grupo:references tpodocumento:references --skip-stylesheets
+	-migrar
+	 
+	-------------------------------------------------------------------------------------------------
