@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130624025451) do
 
   create_table "estudiantes", :force => true do |t|
     t.string   "nombre"
+    t.string   "apellido"
     t.string   "documento"
     t.string   "email"
     t.string   "tell1"

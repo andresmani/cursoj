@@ -1,20 +1,45 @@
-<%= simple_form_for @estudiante, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :nombre %>
-  <%= f.input :documento %>
-  <%= f.input :email %>
-  <%= f.input :tell1 %>
-  <%= f.input :cel %>
-  <%= f.input :fechana %>
-  <%= f.input :direccion %>
-  <%= f.input :nomfam %>
-  <%= f.input :tell2 %>
-  <%= f.label :ficha %>
-  <%= f.collection_select :grupo_id, Grupo.all, :id, :ficha %><br><br>
-  <%= f.label :tipo_documento %>
-  <%= f.collection_select :tpodocumento_id, Tpodocumento.all, :id, :nombre %><br><br>
+<%= simple_form_for(@estudiante, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
+
+  <%= f.error_notification %>  
+
+  <div class="responsive">
+    <div class="modal-body">  
+      <div class="control-group">
+        <div class="row" id ="colors">
+          <div class= "span6">
+            <center><h4>Reguistro</h4></center><hr>
+            <%= f.input :nombre, :label =>'Nombre:' %>
+             <%= f.input :apellido, :label =>'Apellido:' %>
+            <%= f.label :t, :label=>'Tipo de Documento: ' %>
+            <%= f.collection_select :tpodocumento_id, Tpodocumento.all, :id, :nombre %><br><br>
+            <%= f.input :documento, :label =>'# Documento:' %>
+            <%= f.input :email, :label =>'Email:' %>
+            <%= f.input :tell1, :label =>'Telefono-Csa:'%>
+            <%= f.input :cel, :label =>'Tel-Celular:'%>
+            </div>
+            <center><h4>Otros Datos</h4></center> 
+              <hr>
+            <div class ="span6">
+            <div class="row">
+             <%= f.input :fechana,:label =>'Fcha-Nanto:', as: :date, start_year: Date.today.year - 50, end_year: Date.today.year - 0, accept_day: true, order: [:day, :month, :year] %>
+            <%= f.input :direccion, :label =>'Direccion:' %>
+            <%= f.input :nomfam, :label =>'Nombre-Familiar:' %>
+            <%= f.input :tell2, :label =>'Tell-Familiar:'%>
+            <%= f.label :f, :label=> 'Ficha: ' %>
+            <%= f.collection_select :grupo_id, Grupo.all, :id, :ficha %>
+          </div>
+        </div>
+      </div>
+
+      <div class= "span12">
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 estudiantes_path, :class => 'btn' %>
+      </div>
+      </div>
+    </div>            
   </div>
+</div>
 <% end %>
+  
