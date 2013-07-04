@@ -38,5 +38,5 @@ modelos:
 	-----------------------------------------------------------------
 	rails g scaffold estudiante nombre:string documento:string email:string tell1:string cel:string fechana:date direccion:string nomfam:string tell2:string grupo:references tpodocumento:references --skip-stylesheets
 	-migrar
-	 
+	 rails g bootstrap:themed estudiantes -f
 	-------------------------------------------------------------------------------------------------
