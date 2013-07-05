@@ -9,6 +9,13 @@ group :assets do
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+	
+group :test do
+	gem 'autotest-rails'
+	gem 'ZenTest'
+	
+end	
+group :production do	
 	gem 'therubyracer', :platforms => :ruby
 	gem 'json'
 	gem 'less-rails' 
@@ -27,12 +34,5 @@ end
 	gem 'bcrypt-ruby', :require => 'bcrypt'
 	gem 'cancan'
 	gem 'rolify'
-	
-group :test do
-	gem 'autotest-rails'
-	gem 'ZenTest'
-	
-end	
-group :production do	
 	gem 'pg'
 end
